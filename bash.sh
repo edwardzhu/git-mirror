@@ -1,7 +1,7 @@
 #!/bin/bash
 input=$GIT_LIST
 proxy=$PROXY
-[ -z "$proxy" ] || (git config --global http.proxy "$proxy" && git config --global https.proxy "$proxy")
+[ -z "$proxy" ] || (git config --global http.proxy "$proxy" && git config --global https.proxy "$proxy" && echo "Set the proxy: $proxy")
 for f in *.git; do
 	if [ -d "$f" ]; then
 		cd $f && git fetch origin && git lfs fetch --all && git fetch --tags; cd ..
