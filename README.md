@@ -5,6 +5,7 @@ Build the Docker to mirror the git repositories to local disk. Now, it supports 
 ````
 docker run --name=git-mirroring \
            -e GIT_LIST=<your git list file> \
+           -e PROXY=<proxy> \
            -v <your repos>:/repos \
            edzhu/git-mirror:latest
 ````
@@ -16,3 +17,4 @@ docker run --name=git-mirroring \
     ...
     ````
 - `<your repos>` is the root path to store the repositories. Each repository is cloned to the folder, `<repo name>.git`.
+- `PROXY` is an optional parameter, which allows you to set the proxy for the git.
